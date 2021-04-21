@@ -10,6 +10,12 @@
     - name: Get disk facts
       win_disk_facts:
 
-    - name: Output first disk size
+    - name: Output allocated disk size
       debug:
         var: ansible_facts.disks[2].size
+
+    - name: Create a partition with drive letter D and size 5 GiB
+      community.windows.win_partition:
+        drive_letter: E
+        partition_size: -1
+        disk_number: 2
