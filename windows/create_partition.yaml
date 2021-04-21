@@ -1,9 +1,15 @@
 ---
-- name: Create a partition with drive letter D and size 1020 GiB
+- name: Initialize the disk and allocate the space
   hosts: all
   tasks:
-
-    - win_partition:
-        drive_letter: D
-        partition_size: 1020 GiB
+    - name: Initialize a disk
+      community.windows.win_initialize_disk:
         disk_number: 2
+        force: yes
+
+    - name: Get disk facts
+      win_disk_facts:
+
+    - name: Output first disk size
+      debug:
+        var: ansible_facts.disks[2].size
