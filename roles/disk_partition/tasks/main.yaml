@@ -1,7 +1,7 @@
 ---
-- name: Initialize the disk and allocate the space
-  hosts: all
-  tasks:
+# - name: Initialize the disk and allocate the space
+#   # hosts: all
+#   tasks:
     - name: Initialize a disk
       community.windows.win_initialize_disk:
         disk_number: 2

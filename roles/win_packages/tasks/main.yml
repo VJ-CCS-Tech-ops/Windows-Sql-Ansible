@@ -1,0 +1,14 @@
+---
+  - name: Verify .NET Framework version
+    win_reg_stat:
+      path: HKLM:\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full
+      name: Version
+    register: dotnetversion
+
+  - debug: 
+      msg: "{{dotnetversion}}"
+  
+  - name: Install .Net Framework 4.8
+    include: install_dotnet.yml
+    when: dotnetversion.value is version_compare('4.7.01','<',strict=True)
+        

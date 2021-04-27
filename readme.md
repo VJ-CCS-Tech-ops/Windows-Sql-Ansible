@@ -46,3 +46,7 @@ Listener
 :5e21:48ad%5, fe80::1c82:34c4:f5ff:fdfb%10
 
 for more common winrm - ansible connection issue, refer https://docs.ansible.com/ansible/devel/user_guide/windows_setup.html#common-winrm-issues
+
+
+5. winrm set winrm/config/service/auth @{Basic="true"}
+6. winrm set winrm/config/service @{AllowUnecrypted="true"}
