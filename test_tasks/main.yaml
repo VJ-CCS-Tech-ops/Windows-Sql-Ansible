@@ -1,0 +1,9 @@
+---
+- name: This is a test
+  gather_facts: True
+  hosts: all
+  tasks:
+      - name: create a directory for installer download
+        ansible.windows.win_file:
+            path: c:\sql17
+            state: directory

@@ -2,4 +2,6 @@
 - hosts: windows
   gather_facts: no
   roles:
-  - disk_partition
+  - sql-inst
+  # - disk_partition
+  # - win_packages
